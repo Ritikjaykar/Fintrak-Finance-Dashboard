@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* Dark theme (default) */
+.dark {
+  --c-bg: #0A0C0F;
+  --c-surface: #111418;
+  --c-surface2: #181C22;
+  --c-border: #1E242E;
+  --c-border2: #252D3A;
+  --c-text: #E8EDF5;
+  --c-muted: #6B7585;
+  --c-faint: #3A4255;
+  --c-green: #00D68F;
+  --c-blue: #4A9EFF;
+  --c-red: #FF5E5E;
+  --c-yellow: #FFB800;
+}
+
+/* Light theme */
+.light {
+  --c-bg: #F0F2F5;
+  --c-surface: #FFFFFF;
+  --c-surface2: #F7F9FC;
+  --c-border: #E2E8F0;
+  --c-border2: #CBD5E1;
+  --c-text: #0F172A;
+  --c-muted: #64748B;
+  --c-faint: #CBD5E1;
+  --c-green: #059669;
+  --c-blue: #2563EB;
+  --c-red: #DC2626;
+  --c-yellow: #D97706;
+}
+
+body {
+  font-family: 'Syne', sans-serif;
+  background-color: var(--c-bg);
+  color: var(--c-text);
+}
+
+/* Chart-specific transitions (can't do these purely in Tailwind) */
+.bar-anim   { transition: height 0.6s cubic-bezier(.23,1,.32,1); }
+.spend-anim { transition: width  0.8s cubic-bezier(.23,1,.32,1); }
+
+@keyframes fadeIn  { from { opacity: 0 }                        to { opacity: 1 } }
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0 } to { transform: none; opacity: 1 } }
+.anim-fade  { animation: fadeIn  0.15s ease; }
+.anim-slide { animation: slideUp 0.2s cubic-bezier(.23,1,.32,1); }
+
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-thumb { background: var(--c-border2); border-radius: 3px; }
